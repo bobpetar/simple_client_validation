@@ -2,7 +2,7 @@ $(document).on("turbolinks:load", function(){
   var selectedInput = null;
   $(function() {
     // for more inputs use $('input, select, textarea')
-      $('input, select').focus(function() {
+      $('input, select, textarea').focus(function() {
           selectedInput = this;
       }).blur(function(){
         if (selectedInput.value == "") {
