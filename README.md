@@ -42,11 +42,15 @@ Require simple_client_validation Javascripts in `application.js`:
 ```
 Then restart your webserver if it was previously running.
 
-Because this gem use
+Because this gem is built for
 ```ruby
 gem 'simple_form'
 ```
-you need to add this in the html.erb to make it work:
+add error messages for the input field you need to add:
+```ruby
+input_html: { message: "Your message here" }
+```
+and it should look like this:
 ```ruby
 f.input :email, label: 'Email', input_html: { message: "Your message here" }
 ```
