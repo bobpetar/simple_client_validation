@@ -46,7 +46,7 @@ Because this gem is built for
 ```ruby
 gem 'simple_form'
 ```
-add error messages for the input field you need to add:
+to add custom error messages for the input field you need to add:
 ```ruby
 input_html: { message: "Your message here" }
 ```
