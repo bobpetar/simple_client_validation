@@ -35,9 +35,11 @@ and after that add the simple_client_validation styles
  *= require simple_client_validation
  */
 ```
-Require simple_client_validation Javascripts in `application.js`:
+Require iban and simple_client_validation Javascripts in `application.js`:
+(iban goes first)
 
 ```js
+//= require iban
 //= require simple_client_validation
 ```
 Then restart your webserver if it was previously running.

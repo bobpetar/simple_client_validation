@@ -91,6 +91,42 @@ $(document).on("turbolinks:load", function(){
 
       });
   });
+  // Check for ONE IBAN input in the from
+  var ibanBox = $('*[name*=iban')[0];
+  if (ibanBox != null) {
+    ibanBox.onkeyup = function(){
+      if(IBAN.isValid(ibanBox.value)){
+        try {
+          var id_to_remove = "added-error" + ibanBox.id;
+          document.getElementById(id_to_remove).remove();
+        } catch (e) {
+          console.log("Continue ...");
+        }
+        var error_message = "Valid IBAN.";
+        var element_id = ibanBox.id;
+        var el = document.createElement("span");
+        el.innerHTML = error_message;
+        el.id = "added-error" + element_id;
+        var div = document.getElementById(element_id);
+        insertAfter(div, el);
+      }else{
+        try {
+          var id_to_remove = "added-error" + ibanBox.id;
+          document.getElementById(id_to_remove).remove();
+        } catch (e) {
+          console.log("Continue ...");
+        }
+        var error_message = "Not valid IBAN.";
+        var element_id = ibanBox.id;
+        var el = document.createElement("span");
+        el.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>' + " " + error_message;
+        el.id = "added-error" + element_id;
+        el.className += " scv-error-message";
+        var div = document.getElementById(element_id);
+        insertAfter(div, el);
+      }
+    }
+  }
   // add error message after input
   function insertAfter(referenceNode, newNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
